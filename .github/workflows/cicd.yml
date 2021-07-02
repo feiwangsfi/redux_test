@@ -19,7 +19,7 @@ jobs:
         #   CI: true
       - name: Build project
         if: github.event_name == 'push'
-        run: npm run build --if-present
+        run: npm run build
       - name: deploy to staging
         if: github.event_name == 'push'
         run: npx surge --project ./build --domain sfihackathon.surge.sh
