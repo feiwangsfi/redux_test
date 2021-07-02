@@ -15,7 +15,7 @@ class Person extends Component {
     render() {
         return (
             <div>
-                <h2> This is Person component, the above number is {this.props.he}</h2>
+                <h2> This is Person component, the above number is {this.props.he} deploy on surge</h2>
                 <input ref={c => this.nameNode = c} type="text" placeholder="input name" ></input>
                 <input ref={c => this.ageNode = c} type="text" placeholder="input age" ></input>
                 <button onClick={this.addPerson}>submit</button>
