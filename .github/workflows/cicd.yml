@@ -15,8 +15,8 @@ jobs:
         with:
           node-version: "14.x"
       - run: npm ci
-        # env:
-        #   CI: true
+        env:
+          CI: true
       - name: Build project
         if: github.event_name == 'push'
         run: npm run build
