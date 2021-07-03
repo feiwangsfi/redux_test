@@ -31,8 +31,8 @@ jobs:
       #     name: code-coverage
       #     path: coverage
       - name: Build project
-        if: github.event_name == 'push'
-        run: npm run build
+      - if: github.event_name == 'push'
+      - run: npm run build
       - name: upload build folder
       - if: github.event_name == 'push'
         uses:  actions/upload-artifact@v1
