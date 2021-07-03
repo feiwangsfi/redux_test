@@ -22,11 +22,24 @@ jobs:
         with:
           node-version: "14.x"
       - run: npm install
+      # - run: npm test
         # env:
         #   CI: true
+      # - name: upload test coverage
+      #   uses: actions/upload-artifact@v1
+      #   with:
+      #     name: code-coverage
+      #     path: coverage
       - name: Build project
         if: github.event_name == 'push'
         run: npm run build
+      - name: upload build folder
+        uses:  actions/upload-artifact@v1
+        with:
+          name: build
+          path: build
+      - uses: actions/download-artifact@v1
+      
       - name: deploy to staging
         if: github.event_name == 'push'
         run: npx surge --project ./build --domain sfihackathon.surge.sh
