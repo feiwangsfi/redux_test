@@ -39,7 +39,7 @@ jobs:
           name: build
           path: build
       - name: download build folder
-        uses: actions/download-artifact
+        uses: actions/download-artifact@v1
       - name: deploy to staging
         if: github.event_name == 'push'
         run: npx surge --project ./build --domain sfihackathon.surge.sh
